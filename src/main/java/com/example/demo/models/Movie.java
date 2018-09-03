@@ -6,7 +6,7 @@ public class Movie {
     private String name;
     private int year;
     private double rating;
-    private int duration;
+    private double duration;
     private String imgUrl;
     private String movieDescription;
 
@@ -15,7 +15,7 @@ public class Movie {
         //default
     }
 
-    public Movie(int id, String name, int year, double rating, int duration, String imgUrl, String movieDescription){
+    public Movie(int id, String name, int year, double rating, double duration, String imgUrl, String movieDescription){
         this.id = id;
         this.name = name;
         this.year = year;
@@ -57,11 +57,11 @@ public class Movie {
         this.rating = rating;
     }
 
-    public int getDuration() {
+    public double getDuration() {
         return duration;
     }
 
-    public void setDuration(int duration) {
+    public void setDuration(double duration) {
         this.duration = duration;
     }
 
