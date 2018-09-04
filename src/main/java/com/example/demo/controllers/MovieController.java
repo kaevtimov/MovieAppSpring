@@ -6,6 +6,7 @@ import com.example.demo.services.base.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -25,23 +26,23 @@ public class MovieController {
     }
 
     @RequestMapping(value = "/new", method = RequestMethod.POST)
-    public Movie postMovie(@RequestBody Movie movie){
+    public Movie postMovie(@RequestBody @Valid Movie movie){
         service.create(movie);
         return movie;
     }
 
     @RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
-    public Movie getMovieById(@PathVariable(value = "id") int id){
+    public Movie getMovieById(@PathVariable(value = "id") @Valid int id){
         return service.getMovieById(id);
     }
 
     @RequestMapping(value = "/remove/{id}", method = RequestMethod.DELETE)
-    public void deleteMovie(@PathVariable(value = "id") int id){
+    public void deleteMovie(@PathVariable(value = "id") @Valid int id){
         service.delete(id);
     }
 
     @RequestMapping(value = "/update/{id}", method = RequestMethod.PUT)
-    public void updateMovie(@RequestBody Movie movie, @PathVariable(value = "id") int id){
+    public void updateMovie(@RequestBody @Valid Movie movie, @PathVariable(value = "id") @Valid int id){
         service.updateMovie(id, movie);
     }
 }

@@ -1,14 +1,45 @@
 package com.example.demo.models;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class Movie {
 
+    @NotNull
+    @Min(value = 1)
     private int id;
+
+    @NotNull
+    @Size(min = 2, max = 150)
     private String name;
+
+    @NotNull
+    @Size(min = 4, max = 100)
     private String genre;
+
+    @NotNull
+    @Min(value = 1888)
+    @Max(value = 2018)
     private int year;
+
+    @NotNull
+    @Min(value = 0)
+    @Max(value = 5)
     private double rating;
+
+    @NotNull
+    @Min(value = 5)
+    @Max(value = 240)
     private double duration;
+
+    @NotNull
+    @Size(min = 10, max = 500)
     private String imgUrl;
+
+    @NotNull
+    @Size(min = 10, max = 10000)
     private String movieDescription;
 
 
