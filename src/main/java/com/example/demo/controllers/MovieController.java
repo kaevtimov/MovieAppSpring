@@ -30,7 +30,7 @@ public class MovieController {
         return movie;
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
     public Movie getMovieById(@PathVariable(value = "id") int id){
         return service.getMovieById(id);
     }
