@@ -12,6 +12,14 @@ public class Movie {
     private int id;
 
     @NotNull
+    @Min(value = 1)
+    private double voteSum;               //
+
+    @NotNull
+    @Min(value = 1)
+    private int votes;                    //
+
+    @NotNull
     @Size(min = 2, max = 150)
     private String name;
 
@@ -47,15 +55,33 @@ public class Movie {
         //default
     }
 
-    public Movie(int id, String name, String genre, int year, double rating, double duration, String imgUrl, String movieDescription){
+    public Movie(int id, double voteSum, int votes, String name, String genre, int year, double duration, String imgUrl, String movieDescription){
         this.id = id;
+        this.voteSum = voteSum;
+        this.votes = votes;
         this.name = name;
         this.genre = genre;
         this.year = year;
-        this.rating = rating;
+        this.rating = voteSum/votes;
         this.duration = duration;
         this.imgUrl = imgUrl;
         this.movieDescription = movieDescription;
+    }
+
+    public double getVoteSum() {
+        return voteSum;
+    }
+
+    public void setVoteSum(double voteSum) {
+        this.voteSum = voteSum;
+    }
+
+    public int getVotes() {
+        return votes;
+    }
+
+    public void setVotes(int votes) {
+        this.votes = votes;
     }
 
     public int getId() {
