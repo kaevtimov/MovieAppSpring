@@ -34,7 +34,8 @@ public class MovieRepositoryImpl implements MovieRepository {
 
     @Override
     public void create(Movie movie) {
-        movie.setId(generator.getNextId());
+        movie.setId(this.generator.getNextId());
+        movie.setRating(0);
         this.movies.add(movie);
     }
 
